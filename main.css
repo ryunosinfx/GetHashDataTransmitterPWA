@@ -1,0 +1,10 @@
+div.indicator{
+    display:none;
+}
+.btn{
+    display: inline-block;
+    background-color: aqua;
+    padding: 0.5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+}

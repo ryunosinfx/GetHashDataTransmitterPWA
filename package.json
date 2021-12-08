@@ -1,0 +1,29 @@
+{
+  "name": "gethashdatatransmitterpwa",
+  "version": "1.0.0",
+  "description": "The Bookmarklet to transmit data which portected websits by http headers with modarn browser at PWA.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server --port 8081 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryunosinfx/GetHashDataTransmitterPWA.git"
+  },
+  "keywords": [
+    "transmitter"
+  ],
+  "author": "ryunosinfx2 <ryunosinfxxul@gmail.com> (https://github.com/ryunosinfx)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryunosinfx/GetHashDataTransmitterPWA/issues"
+  },
+  "homepage": "https://github.com/ryunosinfx/GetHashDataTransmitterPWA#readme",
+  "devDependencies": {
+    "http-server": "^14.0.0"
+  },
+  "browser": {
+    "[module-name]": false
+  }
+}
