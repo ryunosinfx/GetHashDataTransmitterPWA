@@ -79,27 +79,34 @@ class main {
 		});
 		window.location.reload(true);
 	}
-	static async getBookmarklet() {
-		return await new GetHashDataTransitter().getURL();
+	static async getBookmarklet(q) {
+		return await new GetHashDataTransitter().getURL(q);
 	}
 }
 class view {
 	constructor() {
 		const v = V.gi();
 		const reload = v.gid('reload');
+		const regex = v.gid('regex');
 		const f1 = () => {
 			alert('test');
 			main.reload();
 		};
 		console.log(v);
 		v.e(reload, 'click', f1);
+		const f2 = () => {
+			this.setBookmarklet();
+		};
+		v.e(regex, 'change', f2);
 		this.setBookmarklet();
 	}
 	async setBookmarklet() {
 		const v = V.gi();
 		const bookmarklet = v.gid('bookmarklet');
+		const regex = v.gid('regex');
+		const q = regex.value;
 		bookmarklet.textContent = 'bookmarklet';
-		const url = await main.getBookmarklet();
+		const url = await main.getBookmarklet(q);
 		v.sa(bookmarklet, 'href', url);
 		const text = v.gid('text');
 		text.textContent = url + '  ' + url.length;

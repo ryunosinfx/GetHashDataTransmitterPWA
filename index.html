@@ -21,6 +21,17 @@
     <a class="reload btn" id="reload">reload</a>
     <div class="loading" id="loading">
         <div class="indicator"></div>
+        <textarea id="regex">[
+            'main section>div',
+            'article>div>div>div',
+            {
+                name: ['div>div>a>div>div:nth-child(1)>div>span>span', 'div>div>div>div>div>a>div>div:nth-child(1)>div>span>span'],
+                id: 'div>div>a>div>div:nth-child(2)>div>span',
+                text: 'div>div>div>div>span',
+                href: 'div>div>div>div:nth-child(1)>a',
+                time: ['div>div>div>div>a>span', 'div>div>div:nth-child(1)>a>time'],
+            },
+        ]</textarea>
         <div class="bookmarklet">コピーしてください：<a id="bookmarklet" href="">test</a></div>
         <div class="text" id="text"></div>
     </div>

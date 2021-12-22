@@ -1,16 +1,6 @@
 (function () {
 	const A = 'ACCESS_POINT';
-	const Q = [
-		'main section>div',
-		'article>div>div>div',
-		{
-			name: ['div>div>a>div>div:nth-child(1)>div>span>span', 'div>div>div>div>div>a>div>div:nth-child(1)>div>span>span'],
-			id: 'div>div>a>div>div:nth-child(2)>div>span',
-			text: 'div>div>div>div>span',
-			href: 'div>div>div>div:nth-child(1)>a',
-			time: ['div>div>div>div>a>span', 'div>div>div:nth-child(1)>a>time'],
-		},
-	];
+	const Q = QUERY;
 	const fa = (v) => {
 		return Array.isArray(v);
 	};
@@ -27,13 +17,35 @@
 		}
 		return n;
 	};
+
+	const t64 = (s) => {
+		const m = 50000;
+		const l = s.length;
+		const p = Math.ceil(l / m);
+		const r = [];
+		for (let j = 0; j < p; j++) {
+			const b = m * j;
+			const z = l - b;
+			const p = z > m ? m : z > 0 ? z : l;
+			const e = b + p;
+			const i = s.substring(b, e);
+			const u = new Uint16Array(p);
+			for (let k = 0; k < p; k++) {
+				u[k] = i.charCodeAt(k);
+			}
+			const c = String.fromCharCode(...new Uint8Array(u.buffer));
+			r.push(c);
+		}
+		return btoa(r.join(''));
+	};
 	const f1 = (s) => {
 		console.log('--f1--s:' + s);
-		const e = new TextEncoder();
-		const u = e.encode(s);
-		const d = new TextDecoder('utf8');
-		const D = btoa(d.decode(u)).split('+').join('-').split('/').join('_').split('=').join('');
+		// const e = new TextEncoder();
+		// const u = e.encode(s);
+		// const d = new TextDecoder('utf8');
+		const D = t64(s).split('+').join('-').split('/').join('_').split('=').join('');
 		const a = `${A}#${D}`;
+		console.log('a:' + a + ' /' + a.length);
 		/* window.open(a, '_blank').focus();*/
 	};
 	const f3 = (e) => {
